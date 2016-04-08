@@ -1,0 +1,24 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  port: 5432
+  host: localhost
+  username: <%= ENV["USER" ] %>
+  password: <%= ENV["DATABASE_PASSWORD" ] %>
+
+development:
+  <<: *default
+  database: upgradeSt_development
+
+test:
+  <<: *default
+  database: upgradeSt_test
+
+staging:
+  <<: *default
+  database: upgradeSt_staging
+
+production:
+  <<: *default
+  database: upgradeSt_production
